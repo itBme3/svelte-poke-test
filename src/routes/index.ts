@@ -7,7 +7,7 @@ export async function GET() {
         'access-control-allow-origin': '*'
       },
       body: {
-        pokemons: pokemons.results
+        pokemons: [...pokemons.results]
       }
     };
   }
