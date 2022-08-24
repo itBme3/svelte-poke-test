@@ -1,0 +1,5 @@
+```ts
+interface Type1 {
+    some: string
+}
+```

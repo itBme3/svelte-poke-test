@@ -1,12 +1,12 @@
 <script>
 export /**
-* @type {{ [x: string]: any; }}
+* @type { any }
 */
- let row;
+ let row = undefined;
 export /**
-* @type {{ key: string | number; }}
+* @type { any }
 */
- let column;
+ let column = undefined;
 </script>
 <td>
     {#if $$slots.default}
@@ -22,10 +22,5 @@ export /**
         padding: .25rem;
         background-color: black;
         color:white;
-    }
-    td input {
-        background-color: white;
-        color: black;
-
     }
 </style>

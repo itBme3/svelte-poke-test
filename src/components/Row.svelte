@@ -1,5 +1,5 @@
 <script>
-    import TableCell from "./TableCell.svelte";
+    import Cell from "./Cell.svelte";
     export let row = {};
     export /**
 * @type {any[]}
@@ -11,7 +11,7 @@
         <slot {row} {columns} />
     {:else if row}
         {#each columns as column}
-            <TableCell {row} {column} />
+            <Cell {row} {column} />
         {/each}
     {/if}
 </tr>

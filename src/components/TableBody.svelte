@@ -1,5 +1,5 @@
 <script>
-import TableRow from "./TableRow.svelte";
+import Row from "./Row.svelte";
 export /**
 * @type {any[]}
 */
@@ -15,7 +15,7 @@ export /**
         <slot {rows} {columns} />
     {:else}
         {#each rows as row}
-            <TableRow {row} {columns} />
+            <Row {row} {columns} />
         {/each}
     {/if}
 </tbody>
