@@ -1,0 +1,39 @@
+name: Wingsuit - Build, Lint & Unit Test
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+    paths:
+      - "**/*"
+      - ".github/workflows/create-dependency-graphs.yml"
+
+jobs:
+  dependency-graphs:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+        
+    steps:
+    - name: Checkout Commit
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+
+    - name: Set Up App
+      uses: ./.github/actions/setup-node-app
+      with:
+        fallback-node-version: 16.11.1
+        working-directory: "./"
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Graphviz
+      uses: ts-graphviz/setup-graphviz@v1
+
+    - name: Create Graphs
+      run: "yarn graphd"
+
+    - name: Amend Graphs
+      uses: EndBug/add-and-commit@v9
+      with:
+        commit: --amend
