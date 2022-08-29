@@ -37,5 +37,4 @@ jobs:
     - name: Amend Graphs
       uses: EndBug/add-and-commit@v9
       with:
-        commit: 'test'
         push: origin testing-graphs
