@@ -38,4 +38,4 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         commit: --amend --no-edit
-        push: testing-graphs origin
+        push: origin testing-graphs
