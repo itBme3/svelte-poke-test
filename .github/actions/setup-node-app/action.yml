@@ -30,11 +30,6 @@ runs:
       with:
         node-version: ${{ steps.get-node-version.outputs.node-version }}
 
-    - name: Authenticate with GitHub Package Registry
-      uses: ./.github/actions/authenticate-github-package-registry
-      with:
-        github-token: ${{ inputs.github-token }}
-
     - name: Install Dependencies
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install --non-interactive
