@@ -1,0 +1,30 @@
+name: "Get Node Version"
+description: "Get the node version from an .npmrc file in the working-directory, or default to a value if one can't be found."
+inputs:
+  fallback-version:  # id of input
+    description: "The version of node to use if none can be determined from .npmrc in the working directory"
+    required: true
+  working-directory:
+    description: "The directory to search for the .npmrc file in."
+    required: true
+outputs:
+  node-version:
+    description: "The version of node to use"
+    value: ${{ steps.get-node-version.outputs.node-version }}
+runs:
+  using: "composite"
+  steps:
+    - id: get-node-version
+      run: |
+        set +e
+        set +o pipefail
+        cd "${{ inputs.working-directory }}"
+
+        npmrc_value="$(cat .npmrc 2>/dev/null | sed -E -n 's/^node-version=([0-9]+\.[0-9]+\.[0-9]+)$/\1/p')"
+
+        if [[ -z "$npmrc_value" ]]; then
+            npmrc_value=${{ inputs.fallback-version }}
+        fi
+
+        echo "::set-output name=node-version::$npmrc_value"
+      shell: bash
