@@ -38,4 +38,3 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         commit: --amend --no-edit
-        push: origin doing-work --force
