@@ -35,10 +35,7 @@ jobs:
       run: "yarn graphd"
 
     - name: Amend Graphs
-      run: |
-        git add .
-        git commit --amend --no-edit
-      # uses: EndBug/add-and-commit@v9
-      # with:
-      #   commit: --amend --no-edit
-      #   tag_push: '--force'
+      uses: EndBug/add-and-commit@v9
+      with:
+        commit: --amend --no-edit
+        push: origin ${{ github.event.pull_request.head.repo.full_name }} --force
