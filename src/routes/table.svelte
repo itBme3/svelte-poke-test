@@ -1,8 +1,6 @@
 <script>
-    import Table from "../components/Table.svelte";
+    import {Cell, Table, Row} from "../components/index";
     import TableBody from "../components/TableBody.svelte";
-    import Row from "../components/Row.svelte";
-    import Cell from "../components/Cell.svelte";
     import {rows, columns} from '../utils/data'
     let hasSlots = true
     let loaded = false

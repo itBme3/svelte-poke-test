@@ -1,0 +1,14 @@
+{
+	"fontSize": "10px",
+    "tsConfig": "./tsconfig.json",
+    "fileExtensions": ["js", "svelte", "ts"],
+    "layout": "neato",
+    "detectiveOptions": {
+		"es6": {
+			"mixedImports": true
+		},
+        "ts": {
+			"mixedImports": true
+		}
+	}
+}
