@@ -32,8 +32,9 @@ jobs:
       uses: ts-graphviz/setup-graphviz@v1
 
     - name: Create Graphs
-      run: | 
-        "yarn graphd"
-        git add .
-        git commit --amend --no-edit
-        git push --force
+      run: "yarn graphd"
+
+    - name: Amend Graphs
+      uses: EndBug/add-and-commit@v9
+      with:
+        commit: --amend --no-edit
