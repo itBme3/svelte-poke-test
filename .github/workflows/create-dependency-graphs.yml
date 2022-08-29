@@ -17,8 +17,6 @@ jobs:
     steps:
     - name: Checkout Commit
       uses: actions/checkout@v2
-      with:
-        ref: ${{ github.event.pull_request.head.ref }}
 
     - name: Set Up App
       uses: ./.github/actions/setup-node-app
@@ -36,5 +34,5 @@ jobs:
     - name: Amend Graphs
       uses: EndBug/add-and-commit@v9
       with:
-        commit: '--amend'
+        commit: --amend
         tag_push: '--force'
