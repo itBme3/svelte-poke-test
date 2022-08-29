@@ -1,0 +1,39 @@
+name: "Set Up Node App"
+description: "Handles setting up node, authenticating the package registry, and installing dependencies for the node app at the given working-directory."
+
+inputs:
+  fallback-node-version:
+    description: "The version of node to use if none can be determined from .npmrc in the working directory"
+    required: true
+  working-directory:
+    description: "The directory to use for installation."
+    required: true
+  github-token:
+    description: "The GitHub token to use for package management authentication."
+    required: true
+  cache-dependecies:
+    description: "Set to false to not use yarn-cache"
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get Node Version
+      id: get-node-version
+      uses: ./.github/actions/get-node-version
+      with:
+        fallback-version: ${{ inputs.fallback-node-version }}
+        working-directory: ${{ inputs.working-directory }}
+
+    - name: Set Up Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ steps.get-node-version.outputs.node-version }}
+
+    - name: Install Dependencies
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      run: yarn install --non-interactive
+      working-directory: ${{ inputs.working-directory }}
+      shell: bash
+      env:
+        CI: "true"

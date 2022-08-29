@@ -7,7 +7,7 @@
 <div style="margin-left: 1rem">
 <details>
 <summary style="cursor:pointer">HEAD</summary>
-<img style="margin-top: .5rem" src="../../main/graphd/src.svg" />
+<img style="margin-top: .5rem" src="../../master/graphd/src.svg" />
 </details>
 <img src="./src.svg" />
 </div>
@@ -18,7 +18,7 @@
 <div style="margin-left: 1rem">
 <details>
 <summary style="cursor:pointer">HEAD</summary>
-<img style="margin-top: .5rem" src="../../main/graphd/src.lib.svg" />
+<img style="margin-top: .5rem" src="../../master/graphd/src.lib.svg" />
 </details>
 <img src="./src.lib.svg" />
 </div>
@@ -29,7 +29,7 @@
 <div style="margin-left: 1rem">
 <details>
 <summary style="cursor:pointer">HEAD</summary>
-<img style="margin-top: .5rem" src="../../main/graphd/src.test.svg" />
+<img style="margin-top: .5rem" src="../../master/graphd/src.test.svg" />
 </details>
 <img src="./src.test.svg" />
 </div>
@@ -40,7 +40,7 @@
 <div style="margin-left: 1rem">
 <details>
 <summary style="cursor:pointer">HEAD</summary>
-<img style="margin-top: .5rem" src="../../main/graphd/src.routes.svg" />
+<img style="margin-top: .5rem" src="../../master/graphd/src.routes.svg" />
 </details>
 <img src="./src.routes.svg" />
 </div>
